@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div><a href="{% url 'post_new' %}">new</a></div>
+    <div><h1><a href="#">TITLE</a></h1></div>
+    {% for d in data %}
+    <div>{{ d.publish_date }}</div>
+    <h1><a href="{% url 'post_detail' d.pk %}">{{ d.title }}</a> </h1>
+    <p>{{ d.text|linebreaks }}</p>
+    {% endfor %}
+{% endblock %}
